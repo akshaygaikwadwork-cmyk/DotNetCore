@@ -1,0 +1,73 @@
+﻿@* @model IEnumerable<CRUD_Operation1.Models.StudentModel> *@
+    @model CRUD_Operation1.Models.TempViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="AddStudent" asp-controller="Student">Create New</a>
+</p>
+
+
+@{
+
+    if (!string.IsNullOrEmpty(Model.Response.Message))
+    {
+        <p>@Model.Response.Message</p>
+    }
+
+    if (Model.Student == null)
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    No Records Avilable
+                </tr>
+            </thead>
+            <tbody>
+        </table>
+    }
+    else
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Address
+                    </th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    foreach (var item in Model.Student)
+                    {
+
+                        <tr>
+                            <td>
+                                @item.Name
+                            </td>
+                            <td>
+                                @item.Address
+                            </td>
+                            <td>
+                                <a asp-action="EditStudent" asp-controller="Student" asp-route-id="@item.Id">Edit</a> |
+                                <a asp-action="GetStudentDetails" asp-controller="Student" asp-route-id="@item.Id">Details</a> |
+                                <a asp-action="DeleteStudent" asp-controller="Student" asp-route-id="@item.Id">Delete</a>
+                            </td>
+                        </tr>
+
+                    }
+                }
+            </tbody>
+        </table>
+
+    }
+}
+

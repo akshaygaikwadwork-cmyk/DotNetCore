@@ -1,0 +1,53 @@
+﻿@model IEnumerable<DatabaseFirstApproch_EntityFramework.Models.TblStudentUsingEntity>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StudName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StudGender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StudAge)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StudStandard)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudGender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudAge)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudStandard)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,102 @@
+﻿@model IEnumerable<CRUD_Operation_JqueryAJAX.Models.HotelModel>
+
+@{
+    ViewData["Title"] = "GetHotelData";
+    int sr_no = 1;
+}
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<p>
+    <a asp-action="CustomersOrders" class="btn btn-primary"> + Order item</a>
+</p>
+<div class="table-responsive-sm">
+    @if (TempData["msg"] != null)
+    {
+        <br />
+        <div class="alert alert-success alert-dismissible" id="alertMsgDiv">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong id="alertMsg">@TempData["msg"]</strong>
+        </div>
+
+        <br />
+    }
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>
+                    Sr. No
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CustomerName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DishName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Quantity)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Amount)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OrderDate)
+                </th>
+                <th>
+                    Action
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                @Html.HiddenFor(modelItem => item.CustomerId)
+                <tr>
+                    <td scope="row">
+                        @(sr_no++).
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CustomerName)
+                    </td>
+                    <td>
+                        <img src="~/images/@item.DishImageName" class="rounded-circle" height="40" width="40" asp-append-version="true">
+                        @item.DishName
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Quantity)
+                    </td>
+                    <td>
+                        ₹@Html.DisplayFor(modelItem => item.Amount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OrderDate)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit","EditCustomersOrderData","Hotel",new{custId = item.CustomerId},new{@class="btn btn-secondary"}) |
+                        @Html.ActionLink("Details","ViewOrderDetails","Hotel",new{custId = item.CustomerId},new{@class="btn btn-info"}) |
+                        @Html.ActionLink("Delete","DeleteOrderItem","Hotel",new{custId = item.CustomerId},new{@class="btn btn-danger", @onclick="return confirm('Are you sure you want to delete this customer order details???')"})
+                        @*<a asp-action="EditCustomersOrderData" asp-route-id="@item.CustomerId" class="btn btn-secondary">Edit</a> |
+                    <a asp-action="ViewOrderDetails" asp-route-id="@item.CustomerId" class="btn btn-info">Details</a> |
+                    <a asp-action="DeleteOrderItem" asp-route-id="@item.CustomerId" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this customer order details???')">Delete</a>*@
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<script>
+    $(document).ready(function () {
+        debugger
+        setTimeout(function () {
+            document.getElementById('alertMsgDiv').style.display = 'none';
+
+        }, 3000);
+
+    });
+
+</script>

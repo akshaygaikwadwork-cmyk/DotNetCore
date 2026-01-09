@@ -1,0 +1,31 @@
+﻿@*@model EmployeeModel*@ // this is use at single employee show time
+@model List<EmployeeModel> // this is use at multiple employee show time
+//      OR
+@*@model IEnumerable<EmployeeModel> *@ // this is use at multiple employee show time
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+@*<h4>@Model.EmpId</h4>
+<h4>@Model.EmpName</h4>
+<h4>@Model.Designation</h4>
+<h4>@Model.Salary</h4>*@
+
+<h2> Following is with using List Object</h2>
+
+
+@{
+    foreach (var item in @Model)
+    {
+        <h4>@item.EmpId</h4>
+        <h4>@item.EmpName</h4>
+        <h4>@item.Designation</h4>
+        <h4>@item.Salary</h4>
+        <h4>------------</h4>
+    }
+}

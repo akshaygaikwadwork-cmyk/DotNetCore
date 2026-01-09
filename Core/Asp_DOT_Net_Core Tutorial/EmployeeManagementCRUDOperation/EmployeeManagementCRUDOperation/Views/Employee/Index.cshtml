@@ -1,0 +1,133 @@
+﻿@model IEnumerable<EmployeeManagementCRUDOperation.Models.EmployeeModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<html>
+<head>
+    @*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">*@
+    @*<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>*@
+    <script src="~/js/site.js"></script>
+    @*<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>*@
+    <style>
+        td, th {
+            white-space: nowrap;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    @{
+        if (TempData["Message"] != null)
+        {
+            <div class="alert alert-success alert-dismissible">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>@TempData["Message"]</strong>
+            </div>
+        }
+    }
+
+    <div id="PlaceHolderHere"></div>
+
+    <h3 class="text-center">Employee Management</h3>
+
+    <p>
+        <button type="button" data-toggle="ajax-modal" data-target="#addEmployee" data-url="@Url.Action("CreateEmployee")" class="btn btn-primary"> + Create New</button>
+    </p>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.FName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Mobile)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DOB)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Age)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Gender)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Department)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Salary)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Address)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CreatedOn)
+                </th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Mobile)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DOB)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Age)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Gender)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Department)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Salary)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Address)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreatedOn)
+                    </td>
+                    <td>
+                        <button type="button" data-toggle="ajax-modal" data-target="#addEmployee" data-url="@Url.Action($"getEmpById_ForEdit/{item.Id}")" class="btn btn-info"> Edit </button> &nbsp;|&nbsp;
+                        <button type="button" data-toggle="ajax-modal" data-target="#addEmployee" data-url="@Url.Action($"GetEmployeeDetails/{item.Id}")" class="btn btn-light"> Details </button> &nbsp;|&nbsp;
+                        @*<button type="button" data-toggle="ajax-modal" data-target="#addEmployee" data-url="@Url.Action($"getEmpById_ForEdit/{item.Id}")" class="btn btn-primary"> Delete </button>*@
+
+                        @*<a asp-action="getEmpById_ForEdit" class="btn btn-info" asp-route-id="@item.Id">Edit</a> |
+                    <a onclick="EmployeeDetails(@item.Id)" class="btn btn-light" asp-route-id="@item.Id">Details</a> |*@
+                        <a asp-action="DeleteEmployee" onclick="return confirm('Are you aure you want to delete???')" class="btn btn-danger" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</body>
+</html>
+
+
+

@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<h4>Using normal anchor href - </h4>
+<a href="/Home/Contact">Go to Contact Page</a>
+<br />
+<h4>Using MVC5 html helper method with ActionLink - </h4>
+@Html.ActionLink("Go to Contact Page","Contact","Home");
+<br />
+<h4>Using MVC5 html helper method with Anchor - </h4>
+<a href="@Url.Action("Contact","Home")">Go to Contact Page</a>
+<br />
+<h3>Using TAG helper - with asp-controller and asp-action </h3>
+<a asp-controller="Home" asp-action="Contact">Go to Contact Page</a>
+<br />
+<h2>--------------------------------</h2>
+<h2>--------------------------------</h2>
+<h4>Passing ID parameter in URL</h4>
+<h4>Using normal anchor href - </h4>
+<a href="/Home/Edit/1">Get id by click on link</a>
+<br />
+<h4>Using MVC5 html helper method with ActionLink - </h4>
+@Html.ActionLink("Get id by click on link","Edit","Home", new {id = 1});
+<br />
+<h4>Using MVC5 html helper method with Anchor - </h4>
+<a href="@Url.Action("Edit","Home", new {id = 1})">Get id by click on link</a>
+<br />
+<h3>Using TAG helper - with asp-controller and asp-action </h3>
+<a asp-controller="Home" asp-action="Edit" asp-route-id="1">Get id by click on link</a>
+<br />

@@ -1,0 +1,91 @@
+Identity -
+
+Step 1-
+=>
+Create MVC application
+
+Step 2 -
+=>
+Right click on project => Add => New Scaffolded item => Indentiy => click on add
+
+Step 3 -
+=>
+ 1. Select Layout page from shared folder in Add indentity popup
+ 2. Select which features do you want
+ 3. Add DbConetxt class for DataBase => click on plus(+) add class
+ 4. Select Database provide
+ 5. Create User Class
+ 6. Click on add
+
+Step 4 -
+=> 
+following files created by identity by default -
+ 1. After add indenitty Area folder created with added features
+ 2. Added _LoginPartial.cshtml in shared folder
+
+Step 5-
+=>
+We need to add this Indentity created Partial view in our layout page in <nav> tag at the end
+ <partial name="_LoginPartial" />
+
+Step 6 -
+=>
+To work/show the Indeity/Razor created page we need to add MapRazorPages in Program.cs file
+ - app.MapRazorPages()
+
+Step 7 -
+=>
+Add new fileds in Register as per your reqirement, so to add new filds you need to change in you create Application class file in that .cs file add fields
+
+Step 8 -
+=> 
+Register this new added fileds properties/configure in ApplicationDbContext class.
+
+Step 9 -
+=>
+Add in OnModelCreatingMethod of ApplicationDbContext class -
+
+builder.ApplyConfiguration(new ApplicationUserEntityConfiguration());
+
+after class end -
+
+internal class ApplicationUserEntityConfiguration : IEntityTypeConfiguration<ApplicationUser>
+{
+    public void Configure(EntityTypeBuilder<ApplicationUser> builder)
+    {
+        builder.Property(x => x.FirstName).HasMaxLength(100);
+        builder.Property(x => x.LastName).HasMaxLength(100);
+    }
+}
+
+Step 10 -
+=>
+Now change connection string in appsetting.json file 
+ - change server name
+ - change database name that you want to create by using entity
+
+Step 11 -
+=>
+Add-migration
+update-database
+
+Step 12 -
+=>
+Now add textbox for new fields like- firstname,lastname => area => indentity => pages => account => Register 
+
+- right click on Input => Gotodefination => scroll down add those two properties in Input class
+- add new fields in register view
+- when submit the register data OnPostAsync method will call which is present in Register.cshtml.cs file, so set the input.firstname and input.lastname in user.firstname and user.lastname
+
+Step 13 -
+=>
+Now you can run application 
+	- Register new user
+ 	- Login with registered user id, password
+
+Note - After register there is email confirmation message will come, so to remove this follow the following steps -
+
+ 	1. builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddEntityFrameworkStores<ApplicationDbContext>();
+	2. chnage true to false in program.cs then run application
+	3. now you check by resiter new user, now you will not get any email confirmation message

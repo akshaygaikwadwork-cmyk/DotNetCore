@@ -1,0 +1,6 @@
+{
+  "weatherapi": {
+    "ClientId": "ClientID from MyCustomJsonFile.json",
+    "ClientSecret": "ClientSecret from MyCustomJsonFile.json"
+  }
+}

@@ -1,0 +1,30 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<h1>Index Page</h1>
+
+@{
+    @ViewData["Data"];
+    <br />
+    @ViewBag.Data1;
+    <br />
+    @TempData["Data2"];
+    <br />
+    foreach (var item in (string[])TempData["arryaList"])
+    {
+        <h2>@item</h2>
+    }
+    if (TempData["List"] != null)
+    {
+        foreach (var item in (List<string>)TempData["List"])
+        {
+            <h2>@item</h2>
+        }
+    }
+    else
+    {
+        <h1>No Data Found</h1>
+    }
+}

@@ -1,0 +1,152 @@
+﻿@model EmployeeManagementCRUDOperation.Models.EmployeeModel
+
+<html>
+<head>
+    @*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">*@
+
+    @*<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>*@
+</head>
+<body>
+
+
+    <div class="modal fade bd-example-modal-xl" id="addEmployee">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addEmployeeLabel">Add Employee</h5>
+                    <button type="button" class="close btn btn-outline-danger" data-bs-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body ">
+                    @*<div>
+                    <a asp-action="Index">Back to List</a>
+                    </div>
+
+                    <hr />*@
+                    <form asp-action="CreateEmployee" autocomplete="off">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                <div class="form-group">
+                                    <label asp-for="FName" class="control-label"></label>
+                                    <input asp-for="FName" class="form-control" autocomplete="off" />
+                                    <span asp-validation-for="FName" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="LName" class="control-label"></label>
+                                    <input asp-for="LName" class="form-control" autocomplete="off" />
+                                    <span asp-validation-for="LName" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="Email" class="control-label"></label>
+                                    <input asp-for="Email" class="form-control" autocomplete="off" />
+                                    <span asp-validation-for="Email" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="Mobile" class="control-label"></label>
+                                    <input type="number" asp-for="Mobile" id="mobile_no" autocomplete="off" maxlength="10" class="form-control" />
+                                    <span asp-validation-for="Mobile" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div id="datetimepicker1" class="form-group input-append date">
+                                    <label asp-for="DOB" class="control-label"></label>
+                                    <input type="text" asp-for="DOB" id="date_of_birth" class="form-control" autocomplete="off" />
+                                    <span asp-validation-for="DOB" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+
+                                <div class="form-group">
+                                    <label asp-for="Age" class="control-label"></label>
+                                    <input type="number" asp-for="Age" id="age" min="1" max="100" autocomplete="off" maxlength="3" class="form-control" />
+                                    <span asp-validation-for="Age" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">Gender</label><br />
+                                    <input type="radio" asp-for="Gender" name="gender" id="gender_male" value="Male" />
+                                    <label for="gender_male">Male</label>
+                                    <input type="radio" asp-for="Gender" name="gender" id="gender_female" value="Female" />
+                                    <label for="gender_female">Female</label>
+                                    <span asp-validation-for="Gender" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @*asp-items="@(new SelectList(Model.depList,"Value", "Text"))"*@
+                                    <label asp-for="Department" class="control-label"></label>
+                                    <select asp-for="Department"  id="ddl_department" class="form-control">
+                                        <option value="">Please select department</option>
+                                        <option value=Sales>Sales</option>
+                                        <option value=Banking>Banking</option>
+                                        <option value=Accountant>Accountant</option>
+                                        <option value=Information_Technology>Information Technology</option>
+                                    </select>
+                                    <span asp-validation-for="Department" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="Salary" class="control-label"></label>
+                                    <input asp-for="Salary" class="form-control" autocomplete="off" />
+                                    <span asp-validation-for="Salary" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="Address" class="control-label"></label>
+                                    <textarea asp-for="Address" rows="1" class="form-control" autocomplete="off"></textarea>
+                                    <span asp-validation-for="Address" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-save="modal">Submit</button>
+                    <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+<script>
+    //$(function () {
+    //    $('#datetimepicker1').datetimepicker({
+    //        language: 'pt-BR'
+    //    });
+    //});
+
+    $('#date_of_birth').datepicker({
+        changeMonth: true,
+        changeYear: true,
+        showButtonPanel: true,
+        yearRange: "-100:+0",
+        dateFormat: 'dd/mm/yy'
+
+    });
+
+    $(document).ready(function(){
+        alert("Hi");
+    })
+</script>

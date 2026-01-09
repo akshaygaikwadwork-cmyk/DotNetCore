@@ -1,0 +1,22 @@
+DataBase First approch -
+=>
+1) For first time -
+
+Scaffold-DbContext "server=DESKTOP-I5LLE3S\SQLEXPRESS;database=Asp_DOT_NetCore_DB;trusted_connection=true;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
+
+2) If you add new column then -
+
+Scaffold-DbContext "server=DESKTOP-I5LLE3S\SQLEXPRESS;database=Asp_DOT_NetCore_DB;trusted_connection=true;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models-force
+
+
+Code first approch -
+=>
+1) For first time -
+
+Step1 - Add-migration GiveAnyLogicalFileName
+Step2 - Update-database
+
+2) If you add new field in model class then -
+
+Step1 - Add-migration GiveAnotherLogicalFileName
+Step2 - Update-database

@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<h6>If you want to access session directly in view not in action method then you have to use <b>HttpContextAccessor</b></h6>
+
+<h6>In About action method we are not getting session we are getting session value direct in about view check it</h6>
+
+<h5>Session will distroy in 20min it is by default timer</h5>
+<br />
+<br />
+<h6>
+    If you want to inscrese/decrese session time then add this in program.cs -
+    <br />
+    <pre>
+    builder.Services.AddSession(options =>
+    {
+    options.IdleTimeout = TimeSpan.FromMinutes(40); //default time 20min
+    });
+    </pre>
+</h6>
+
+<br />
+SessionID - 
+<h6>@TempData["SessionId"]</h6>

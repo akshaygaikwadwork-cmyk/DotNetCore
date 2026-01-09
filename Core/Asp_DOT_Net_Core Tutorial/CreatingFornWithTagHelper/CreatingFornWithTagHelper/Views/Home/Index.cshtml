@@ -1,0 +1,65 @@
+﻿@model StudentModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <form asp-controller="Home" asp-action="Index" method="post" class="d-grid">
+
+                <label asp-for="Name">Please enter Name :</label>
+                <input asp-for="Name" class="form-control" placeholder="Enter Name" />
+                <br />
+
+                <label asp-for="Gender">Please select Gender :</label>
+                <select asp-for="Gender" asp-items="Html.GetEnumSelectList<Gender>()" class="form-control">
+                    <option value="">
+                        Select Gender
+                    </option>
+                </select>
+                <br />
+
+                <label asp-for="Age">Please enter Age :</label>
+                <input asp-for="Age" class="form-control" placeholder="Enter Age" />
+                <br />
+
+                <label asp-for="City">Please enter City :</label>
+                <input asp-for="City" class="form-control" placeholder="Enter City" />
+                <br />
+
+                <label asp-for="Married">Are you married :</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Y" asp-for="Married" id="MarriedYes">
+                    <label class="form-check-label" for="MarriedYes">
+                        Yes
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="N" asp-for="Married" id="MarriedNo">
+                    <label class="form-check-label" for="MarriedNo">
+                        No
+                    </label>
+                </div>
+                <br />
+
+                <label asp-for="Description">Please enter Description :</label>
+                <textarea asp-for="Description" class="form-control" placeholder="Enter Description">
+
+                </textarea>
+                <br />
+
+                <input type="submit" class="btn btn-outline-primary" />
+            </form>
+        </div>
+    </div>
+</div>
+<br />
+<br />
+<h6>d-grid class used in form button will streach as per input fields size</h6>

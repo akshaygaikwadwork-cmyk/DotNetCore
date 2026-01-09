@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <header style="background-color:yellow">
+        <h1>This is Header part from layout page</h1>
+    </header>
+    <div>
+        /*
+        Note- This renderBody is rendering our child page data like, index/about/contact pages data
+        */
+        @RenderBody()
+    </div>
+    <footer style="background-color:lightgrey">
+        <h1>This is Footer part from layout page</h1>
+    </footer>
+</body>
+</html>

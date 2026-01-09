@@ -1,0 +1,29 @@
+﻿@model StudentApplication.Models.StudentModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1>Index Page</h1>
+
+<form asp-action="Index" asp-controller="Home">
+
+    <label asp-for="Name" > Please enter name</label>
+    <input asp-for="Name" type="text"/>
+    @Html.ValidationMessageFor(m => m.Name)
+
+    <br />
+
+    <label asp-for="Age"> Please enter age</label>
+    <input asp-for="Age" type="text" />
+
+    <br />
+
+    <label asp-for="Address"> Please enter address</label>
+    <input asp-for="Address" type="text" />
+
+    <br />
+
+    <input type="submit" value="submit" />
+
+</form>

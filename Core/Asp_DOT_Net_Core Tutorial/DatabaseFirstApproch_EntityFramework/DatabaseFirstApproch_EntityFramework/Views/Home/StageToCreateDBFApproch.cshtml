@@ -1,0 +1,50 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<h4>Step 1 - install following package</h4>
+<h6>
+    <b>Microsoft.EntityFrameworkCore.Tools -</b>
+    This package used for to manage migrations and to scaffold of DBContext.
+    <br />
+    Scaffold means it automatically generate code like - you see you can create View which bind with model so that is scaffold which is create automatically code to create views List/Edit/Details etc...
+    <br />
+    <b>Microsoft.EntityFrameworkCore.Design -</b>
+    it contains all the design-time logic for Entity FrameworkCore.
+</h6>
+
+<br />
+<h4>Step 2 - Execute a command for Scaffold DbContext </h4>
+<h6>
+    Scaffold-DbContext "server=DESKTOP-I5LLE3S\SQLEXPRESS;database=Asp_DOT_NetCore_DB;trusted_connection=true;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
+    <br />
+    After above execution model classe will create with dbContext class
+    <span style="color:red">Note- in DbContext Class when we inherit base keyword in constructor that means this base keyword calling to DbContext(i.e. parent class) constructor with parameter options </span>
+    <br />
+    <b>DbContextOptions class -</b> This class used because this class having connection string,database provider etc..
+    <br />
+    If we added new column then update by usgin following command -
+    <br />
+    Scaffold-DbContext "server=DESKTOP-I5LLE3S\SQLEXPRESS;database=Asp_DOT_NetCore_DB;trusted_connection=true;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models-force
+
+</h6>
+
+<br />
+<h4>Step 3 - Connection string  </h4>
+<h6>
+    Remove connection string from DbContext file if exist
+    Add connection string in appsetting.json file
+</h6>
+
+<br />
+<h4>Step 4 - Registering Connection string  </h4>
+<h6>
+    Registere the connection string in Program.cs file after builder.Services.AddControllersWithViews();
+</h6>
+<br />
+<h4>Step 5 - Migration  </h4>
+<h6>
+    Add migration and run the migration in Package Manager Console.
+</h6>

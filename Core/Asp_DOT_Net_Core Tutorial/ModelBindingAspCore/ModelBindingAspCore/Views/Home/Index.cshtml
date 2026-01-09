@@ -1,0 +1,52 @@
+﻿@model EmployeeModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <form asp-controller="Home" asp-action="index" method="post" class="d-grid">
+                <label asp-for="Name">Please enter name: </label>
+                <input asp-for="Name" placeholder="Enter Name" class="form-control"/>
+                <br />
+
+                <label asp-for="Age">Please enter age: </label>
+                <input asp-for="Age" placeholder="Enter Age" class="form-control" />
+                <br />
+
+                <label asp-for="Salary">Please enter salary: </label>
+                <input asp-for="Salary" placeholder="Enter Name" class="form-control" />
+                <br />
+
+                <label asp-for="Gender">Please select gender: </label>
+                <select asp-for="Salary" asp-items="Html.GetEnumSelectList<Gender>()" class="form-control">
+                    <option value="">select gender</option>
+                </select>
+                <br />
+
+                <label asp-for="Designation">Please enter Designation: </label>
+                <input asp-for="Designation" placeholder="Enter Designation" class="form-control" />
+                <br />
+
+                <label asp-for="Married">Are you married?: </label>
+                <label><input type="radio" asp-for="Married" value="Y"/> Yes </label>
+                <label><input type="radio" asp-for="Married" value="N"/> No </label>
+                <br />
+
+                <label asp-for="Description">Please enter Description: </label>
+                <textarea asp-for="Description" placeholder="Enter Description" class="form-control">
+
+                </textarea>
+                <br />
+
+                <input  type="submit" class="btn btn-outline-primary"/>
+            </form>
+        </div>
+    </div>
+</div>

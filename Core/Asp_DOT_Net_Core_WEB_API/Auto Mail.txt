@@ -1,0 +1,45 @@
+Auto Mail -
+
+ using (MailMessage mail = new MailMessage())
+ {
+     mail.From = new MailAddress("gakshay1727@gmail.com");
+     mail.To.Add("pandeysatyaprakash53@gmail.com");
+     mail.CC.Add("akshayg1727@gmail.com");
+     mail.Bcc.Add("akshayg1727@gmail.com");
+     mail.Subject = "Testing For Auto Mail ";
+     mail.Body = "<h1>Hello</h1> <br><br> &nbsp;&nbsp;&nbsp; I am akshay. Please check the attched document and this auto mail is coming from daily basis scheduler . It will also upload multiple attachement as you can see. <br><br><br> Regards, Akshay ";
+     mail.IsBodyHtml = true;
+
+     string CheckFolder = @"G:\SatyaPrakash\Nilesh";
+
+     DirectoryInfo di = new DirectoryInfo(CheckFolder);
+
+     if (Directory.GetFiles(CheckFolder).Length > 0)
+     {
+         Console.WriteLine(Directory.GetFiles(CheckFolder).Length);
+         string[] fileEntries = Directory.GetFiles(CheckFolder);
+         if (fileEntries.Length > 0)
+         {
+             for (int i = 0; i < fileEntries.Length; i++)
+             {
+                 string fileName = fileEntries[i];
+                 mail.Attachments.Add(new Attachment(fileName));
+             }
+         }
+     }
+
+     using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))
+     {
+         smtp.Credentials = new NetworkCredential("gakshay1727@gmail.com", "iwpb rhpr ujab llln");
+         smtp.EnableSsl = true;
+         smtp.Send(mail);
+         Console.WriteLine("Email Send Successfully");
+     }
+ }
+
+
+
+
+Note - For mail you have to do the sender email account should be 2 step verification on and app password you need to create go to following website then type any app name generate password then that password put it here
+
+URL - https://myaccount.google.com/apppasswords

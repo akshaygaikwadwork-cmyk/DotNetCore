@@ -1,0 +1,146 @@
+﻿@model ERPSystem.Models.RegisterViewModel
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            background-image: url('/images/bg1.jpg'); /* Set your background image here */
+            background-size: cover;
+            background-position: center;
+        }
+
+        .register-container {
+            max-width: 400px;
+            margin: 100px auto;
+            padding: 30px;
+            background-color:lavender;
+            border-radius: 10px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .password-wrapper {
+            position: relative;
+        }
+
+        .toggle-password {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+
+        .btn-primary-custom {
+            background-color: #00d9f5;
+            border-color: #00d9f5;
+        }
+
+            .btn-primary-custom:hover {
+                background-color: #00c1d3;
+                border-color: #00c1d3;
+            }
+
+        .text-danger {
+            font-size: 0.875rem;
+        }
+
+        .password-label {
+            margin-bottom: 5px; /* Adjusts the space below the label */
+        }
+
+        .password-container input {
+            margin-top: -5px; /* Reduces space between label and input */
+            padding-right: 40px; /* Keeps space for the eye icon */
+        }
+
+        .password-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+            .password-container input {
+                width: 100%;
+                padding-right: 40px; /* Make space for the eye icon */
+            }
+    </style>
+</head>
+<body>
+    <div class="register-container">
+        <h2>Register</h2>
+        <form asp-action="Register" method="post" class="form-group">
+            <div class="form-group">
+                <label asp-for="Email"></label>
+                <input asp-for="Email" class="form-control" required />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Password" class="password-label"></label>
+            </div>
+            <div class="form-group password-container">
+                <input asp-for="Password" type="password" class="form-control" id="register-password" required />
+                <span class="toggle-password" id="register-toggle-password">
+                    <i class="fas fa-eye"></i>
+                </span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ConfirmPassword" class="password-label"></label>
+            </div>
+            <div class="form-group password-container">
+                <input asp-for="ConfirmPassword" type="password" class="form-control" id="confirm-password" required />
+                <span class="toggle-password" id="confirm-toggle-password">
+                    <i class="fas fa-eye"></i>
+                </span>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-primary-custom btn-block">Register</button>
+
+            <p class="text-center mt-3">
+                Already have an account? <a asp-action="Login">Log in here</a>
+            </p>
+        </form>
+    </div>
+
+    <!-- Include Bootstrap and FontAwesome JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function togglePasswordVisibility(inputId, iconId) {
+            var passwordInput = document.getElementById(inputId);
+            var icon = document.getElementById(iconId).querySelector('i');
+
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text'; // Show password
+                icon.classList.remove('fa-eye'); // Change icon
+                icon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password'; // Hide password
+                icon.classList.remove('fa-eye-slash'); // Change icon back
+                icon.classList.add('fa-eye');
+            }
+        }
+
+        // Add event listeners to the toggle icons
+        document.getElementById('register-toggle-password').addEventListener('click', function () {
+            togglePasswordVisibility('register-password', 'register-toggle-password');
+        });
+
+        document.getElementById('confirm-toggle-password').addEventListener('click', function () {
+            togglePasswordVisibility('confirm-password', 'confirm-toggle-password');
+        });
+    </script>
+</body>
+</html>

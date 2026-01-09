@@ -1,0 +1,34 @@
+﻿@model DIExample.Model.GuidViewModel
+
+<h2>Dependency Injection Example</h2>
+
+<table border="1" cellpadding="10">
+    <tr>
+        <th>Service Type</th>
+        <th>Instance 1</th>
+        <th>Instance 2</th>
+        <th>Are Same?</th>
+    </tr>
+    <tr>
+        <td>Transient</td>
+        <td>@Model.TransientGuid1</td>
+        <td>@Model.TransientGuid2</td>
+        <td>@(Model.TransientGuid1 == Model.TransientGuid2 ? "Yes" : "No")</td>
+    </tr>
+    <tr>
+        <td>Scoped</td>
+        <td>@Model.ScopedGuid1</td>
+        <td>@Model.ScopedGuid2</td>
+        <td>@(Model.ScopedGuid1 == Model.ScopedGuid2 ? "Yes" : "No")</td>
+    </tr>
+    <tr>
+        <td>Singleton</td>
+        <td>@Model.SingletonGuid1</td>
+        <td>@Model.SingletonGuid2</td>
+        <td>@(Model.SingletonGuid1 == Model.SingletonGuid2 ? "Yes" : "No")</td>
+    </tr>
+   @*  <tr>
+        <td>City</td>
+        <td>@Model.Cities</td>
+    </tr> *@
+</table>

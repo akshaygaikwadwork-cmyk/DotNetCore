@@ -1,0 +1,6 @@
+@middelare_test_HostAddress = http://localhost:5173
+
+GET {{middelare_test_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

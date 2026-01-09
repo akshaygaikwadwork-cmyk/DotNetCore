@@ -1,0 +1,24 @@
+﻿@model IEnumerable<PartialView.Models.Product>
+@{
+    ViewData["Title"] = "Products";
+}
+
+<h1>Products</h1>
+
+<div class="container">
+    <div class="row">
+        @{
+            foreach (var item in Model)
+            {
+                <div class="col-md-4">
+                    <h6>Core syntx - </h6>
+                    <partial name="_ProductsPartialView" model="item" />
+                    <h6>MVC 5 syntx- </h6>
+                    @Html.Partial("_ProductsPartialView",item)
+                    <h6>PartialAsync syntx- </h6>
+                    @await Html.PartialAsync("_ProductsPartialView",item)
+                </div>
+            }
+        }
+    </div>
+</div>

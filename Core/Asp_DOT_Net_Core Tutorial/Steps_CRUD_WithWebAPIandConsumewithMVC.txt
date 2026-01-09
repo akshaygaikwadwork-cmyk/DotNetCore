@@ -1,0 +1,41 @@
+Step 1- 
+=>
+Create WebAPI Project
+
+Step 2-
+=>
+Add Packages from nuget packages - 1) Microsoft.EntityFramework.SqlServer,Tools,Design
+
+Step 3-
+=> 
+Add controller
+
+Step 4-
+=>
+Follow CodeFirstApproch/DataBaseFirstApproch
+
+Step 5-
+=>
+Add service in Program.cs and Add connection string in appsetting.json file
+
+Step 6-
+=>
+ Create Method for Get/Post/Put/Delete
+
+Step 7-
+=>
+ Now, cosume the API 
+ 
+Step 8 -
+=>
+ Create a new Asp MVC Project
+
+Step 9 -
+=> 
+ Declare WebAPI URL in appsetting.json file and get in controller using configuation service
+
+Step 10 - 
+=> 
+Now you write the CRUD method and hit URL using HttpClient 
+
+

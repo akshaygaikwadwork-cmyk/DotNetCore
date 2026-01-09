@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<img src="~/images/maggi.jpeg"  height="300" width="300" asp-append-version="true" alt="maggieImg"/> @* no need to give wwwroot 
+*@
+
+<h4>asp-append-version - it is used for after first request of image it will download from server but after that browser will store in his cache memory, so next time when use rehit/request the same image then this time it will get the image from browser cache memory and if image path is changed then it will get image from server for that resaon we used asp-append-version</h4>
+<br />
+<h4>
+    If you check the URL from inspect then there is long code this is cache memory code it will same untill you not change image path location
+</h4>
+
+<h3>Note - You can disable cache by go into inspect => network => disable cache</h3>

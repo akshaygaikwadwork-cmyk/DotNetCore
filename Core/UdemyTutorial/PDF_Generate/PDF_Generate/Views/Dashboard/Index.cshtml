@@ -1,0 +1,24 @@
+﻿@model PDF_Generate.Models.DashboardModel
+
+<h2>@Model.Title</h2>
+<p><strong>Generated on:</strong> @Model.Date</p>
+<ul>
+    @{
+        if (Model.Users != null)
+        {
+            @foreach (var user in Model.Users)
+            {
+                <li>@user</li>
+            }
+        }
+    }
+
+</ul>
+
+
+
+@* <a href="@Url.Action("DownloadPdf", "Dashboard")" class="btn btn-primary">Download PDF</a> *@
+
+<a href="@Url.Action("DownloadPdf", "Dashboard")" class="btn btn-primary" target="_blank">
+    Download PDF
+</a>

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33829.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewModel_MultiModelInOneView", "ViewModel_MultiModelInOneView\ViewModel_MultiModelInOneView.csproj", "{A3443E87-0E12-40CF-ABDE-8106BEF6BEA4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A3443E87-0E12-40CF-ABDE-8106BEF6BEA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3443E87-0E12-40CF-ABDE-8106BEF6BEA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3443E87-0E12-40CF-ABDE-8106BEF6BEA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3443E87-0E12-40CF-ABDE-8106BEF6BEA4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {714600CB-2A32-4EFF-BF36-9C5CE5E2A01D}
+	EndGlobalSection
+EndGlobal

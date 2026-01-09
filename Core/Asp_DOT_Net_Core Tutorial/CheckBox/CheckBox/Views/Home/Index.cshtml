@@ -1,0 +1,63 @@
+﻿@model CheckBox.Models.ViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+<h6>Following is Single Checkbox - </h6>
+
+<form asp-controller="Home" asp-action="Index" method="post">
+
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" asp-for="AcceptTerm" id="flexCheckDefault">
+        <label class="form-check-label" for="flexCheckDefault">
+            @Model.CheckBoxText
+        </label>
+    </div>
+    <br />
+    <input type="submit" value="Submit" class="btn btn-success" />
+</form>
+<br />
+<br />
+<h6>Following is Multi Checkbox - </h6>
+<form asp-controller="Home" asp-action="Index" method="post">
+    @foreach (var checkbox in Model.Options)
+    {
+        <div class="form-check">
+            <input class="form-check-input"
+                   type="checkbox"
+                   value="@checkbox.Value"
+                   id="checkbox_@checkbox.Value"
+                   name="sports" checked="@checkbox.IsChecked">
+
+            <label class="form-check-label" for="checkbox_@checkbox.Value">
+                @checkbox.Text
+            </label>
+        </div>
+    }
+    <br />
+    <input type="submit" value="Submit" class="btn btn-success" />
+    @{
+        if (ViewBag.CheckBoxSelectedList != null)
+        {
+            <br />
+            <br />
+            <label>
+                Sports You Like :
+                @foreach (var item in ViewBag.CheckBoxSelectedList)
+                {
+                    <ul>
+                        <li>
+                            @item
+                        </li>
+                    </ul>
+                }
+            </label>
+        }
+    }
+
+</form>

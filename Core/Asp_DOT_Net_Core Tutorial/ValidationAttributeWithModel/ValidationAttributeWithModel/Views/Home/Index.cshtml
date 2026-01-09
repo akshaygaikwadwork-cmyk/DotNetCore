@@ -1,0 +1,79 @@
+﻿@model StudentModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+@{
+    if (ViewBag.StudentName != null)
+    {
+        <h4>@Html.Raw(@ViewBag.StudentName)</h4>
+        @Html.ActionLink("SignUp","Index","Home",null,new{ @class="btn btn-primary"})
+        // By using the Html.Raw method, we are rendering this string directly to the browser as HTML.
+    }
+    else
+    {
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <form asp-controller="Home" asp-action="index" method="post" class="d-grid">
+                    
+                        <label asp-for="Name">Please enter name : </label>
+                        <input asp-for="Name" class="form-control" placeholder="Enter Name" />
+                        <span asp-validation-for="Name" style="color:red"></span>
+                        <br />
+                        <label asp-for="Email">Please enter email : </label>
+                        <input asp-for="Email" class="form-control" placeholder="Enter Email" />
+                        <span asp-validation-for="Email" style="color:red"></span>
+                        <br />
+                        <label asp-for="Age">Please enter age : </label>
+                        <input asp-for="Age" class="form-control" placeholder="Enter Age" />
+                        <span asp-validation-for="Age" style="color:red"></span>
+                        <br />
+                        <label asp-for="Password">Please enter password : </label>
+                        <input asp-for="Password" class="form-control" placeholder="Enter Password" />
+                        <span asp-validation-for="Password" style="color:red"></span>
+                        <br />
+                        <label asp-for="ConfirmPassword">Please enter confirm password : </label>
+                        <input asp-for="ConfirmPassword" class="form-control" placeholder="Enter Confirm Password" />
+                        <span asp-validation-for="ConfirmPassword" style="color:red"></span>
+                        <br />
+                        <label asp-for="MobileNo">Please enter MobileNo : </label>
+                        <input asp-for="MobileNo" class="form-control" placeholder="Enter MobileNo" />
+                        <span asp-validation-for="MobileNo" style="color:red"></span>
+                        <br />
+                        <label asp-for="WebsiteURL">Please enter WebsiteURL : </label>
+                        <input asp-for="WebsiteURL" class="form-control" placeholder="Enter WebsiteURL" />
+                        <span asp-validation-for="WebsiteURL" style="color:red"></span>
+                        <br />
+                        <input type="submit" class="btn btn-outline-primary" />
+
+                        <h6>
+                        <br><br><br>
+                        Here we using differenct DataAnotation - <br>
+                        1) Required<br>
+                        2) StringLength<br>
+                        3) EmailAddress<br>
+                        4) Range<br>
+                        5) RegularExpression<br>
+                        6) Compair<br>
+                        7) URL<br>
+                        8) MaxLength<br>
+                        9) MinLength<br>
+                        10) Display<br>
+                        </h6>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <br />
+        <br />
+        <br />
+        <h6>Note - Validation attribute present in this namespace - System.ComponentModel.DataAnnotations;</h6>
+
+    }
+}

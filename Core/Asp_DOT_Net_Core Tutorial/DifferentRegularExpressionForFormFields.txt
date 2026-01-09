@@ -1,0 +1,34 @@
+Name Field (Allows letters, spaces, and certain special characters like hyphens or apostrophes):
+^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$
+
+Email Address Field:
+^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$
+
+Password Field (Requires at least one uppercase letter, one lowercase letter, one number, and one special character, minimum 8 characters):
+^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$
+
+Phone Number Field (Allows various formats including parentheses, hyphens, and periods):
+^(\+\d{1,2}\s?)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$
+or
+Indian Mobile Number- 
+^[789]\d{9}$
+
+Date Field (Accepts dates in MM/DD/YYYY format):
+^(0[1-9]|1[0-2])/(0[1-9]|1\d|2\d|3[01])/(19|20)\d{2}$
+
+URL Field:
+^(https?://)?([a-zA-Z0-9]+[.])?[a-zA-Z0-9-]+([.][a-zA-Z]{2,})+(/[a-zA-Z0-9]*)*$
+
+Numeric Field (Allows positive integers):
+^\d+$
+
+Decimal Field (Allows positive decimal numbers, with optional decimal point and precision):
+^\d*\.?\d+$
+
+Zip Code Field (Accepts US ZIP codes in 5-digit or 5+4 format):
+^\d{5}(-\d{4})?$
+or
+^\d{6}$
+
+Username Field (Allows alphanumeric characters and underscores, minimum 3 characters, maximum 16 characters):
+^[a-zA-Z0-9_]{3,16}$

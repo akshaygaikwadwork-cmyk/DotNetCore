@@ -1,0 +1,31 @@
+1) GetAllDetails -
+
+dbContext.tbl_StudentUsingEntity.ToListAsync();
+
+
+2) Create/NewEntry -
+
+dbContext.tbl_StudentUsingEntity.AddAsync(studentModel);
+dbContext.SaveChangesAsync();
+
+3) GetDetailsByID - 
+
+dbContext.tbl_StudentUsingEntity.FirstOrDefaultAsync(x => x.Id == id);
+
+4) Edit - GetDetailsByID -
+
+dbContext.tbl_StudentUsingEntity.FindAsync(id)
+
+5) Update - 
+
+dbContext.tbl_StudentUsingEntity.Update(studentModel); // don't use await
+dbContext.SaveChangesAsync();
+
+6) Delete - GetDetailsByID -
+
+await dbContext.tbl_StudentUsingEntity.FirstOrDefaultAsync(x => x.Id == id);
+
+7) Delete - PostByID -
+_dbContext.tbl_Employee.FindAsync(id);
+dbContext.tbl_StudentUsingEntity.Remove(StudentData); // don't use await
+dbContext.SaveChangesAsync();

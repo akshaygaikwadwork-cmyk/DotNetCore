@@ -1,0 +1,43 @@
+﻿@model List<ExcelUpload_FileDisplayData.Models.UserData>
+
+@{
+    ViewData["Title"] = "Upload Excel File";
+}
+
+<h2>Upload Excel File</h2>
+
+@if (ViewBag.ErrorMessage != null)
+{
+    <div class="alert alert-danger">@ViewBag.ErrorMessage</div>
+}
+
+<form asp-action="UploadExcel" asp-controller="Excel" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <input type="file" name="file" class="form-control" required />
+    </div>
+    <button type="submit" class="btn btn-primary mt-2">Upload</button>
+</form>
+
+@if (Model != null && Model.Count > 0)
+{
+    <h3>Uploaded Data</h3>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <td>@user.Id</td>
+                    <td>@user.Name</td>
+                    <td>@user.Email</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

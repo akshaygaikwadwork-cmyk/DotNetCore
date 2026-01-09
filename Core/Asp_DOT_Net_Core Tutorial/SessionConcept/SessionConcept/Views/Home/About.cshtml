@@ -1,0 +1,31 @@
+﻿@using Microsoft.AspNetCore.Http
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor accessor
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<h4>About Page</h4>
+@*<h6>@ViewBag.SessionData</h6>*@
+
+@accessor.HttpContext.Session.GetString("Key")
+
+
+<h6 style="color:red">Note - To direct get session value in view follow the following steps-
+    <br />
+    1. Add namespace in view - 
+    <ul>
+        <li>
+            @@using Microsoft.AspNetCore.Http
+        </li>
+        <li>
+            @@inject Microsoft.AspNetCore.Http.IHttpContextAccessor accessor
+        </li>
+    </ul>
+    2. Ragister this HttpContextAccessor in Program.CS - 
+    <br />
+     builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+     
+</h6>

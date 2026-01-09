@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33829.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelDataUsingViewData", "ModelDataUsingViewData\ModelDataUsingViewData.csproj", "{CB5B79C1-9468-4271-BE4A-BAB2278D290B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CB5B79C1-9468-4271-BE4A-BAB2278D290B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB5B79C1-9468-4271-BE4A-BAB2278D290B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB5B79C1-9468-4271-BE4A-BAB2278D290B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB5B79C1-9468-4271-BE4A-BAB2278D290B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FD3932D5-4B1C-469A-8BA7-0D676F60A758}
+	EndGlobalSection
+EndGlobal

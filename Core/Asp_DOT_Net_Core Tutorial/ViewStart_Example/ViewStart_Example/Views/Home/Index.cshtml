@@ -1,0 +1,25 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+     /*
+     Note- this comment because we are passing layout in _ViewStart.cshtml 
+           because we don't write again and againt layout in every view for that we add _ViewStart.cshtml
+    */
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+    //Layout = null;
+     /* 
+     Now it will show Layout2 header and footer because it will show here entered location page 
+     i.e. it  is priority to check here is it present or not other othw=erwise it will show Laout.cshtml from _ViewStart.cshtml
+    
+     and if you don't want to bind any layout page with this index page then pass Layout as null
+     
+     Layout = null;
+
+    */
+}
+
+<h1>Index Page</h1>
+
+<h4>Check other About and Conatct headerr and footer page which is second Layout page</h4>

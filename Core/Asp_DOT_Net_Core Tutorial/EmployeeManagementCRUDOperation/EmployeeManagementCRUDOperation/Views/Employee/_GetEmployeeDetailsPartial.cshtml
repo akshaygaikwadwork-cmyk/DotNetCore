@@ -1,0 +1,102 @@
+﻿@model EmployeeManagementCRUDOperation.Models.EmployeeModel
+
+<div class="modal fade bd-example-modal-xl" id="addEmployee">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addEmployeeLabel">View Employee Details</h5>
+                <button type="button" class="close btn btn-outline-danger" data-bs-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm fw-bold">
+                                @Html.DisplayNameFor(model => model.FName)
+                            </div>
+                            <div class="col-sm">
+                                @Html.DisplayFor(model => model.FName)
+                            </div>
+                            <div class="col-sm fw-bold">
+                                @Html.DisplayNameFor(model => model.LName)
+                            </div>
+                            <div class="col-sm">
+                                @Html.DisplayFor(model => model.LName)
+                            </div>
+                        </div><br />
+                        <div class="row">
+                            <div class="col-sm fw-bold">
+                                @Html.DisplayNameFor(model => model.Email)
+                            </div>
+                            <div class="col-sm">
+                                @Html.DisplayFor(model => model.Email)
+                            </div>
+                            <div class="col-sm fw-bold">
+                                @Html.DisplayNameFor(model => model.Mobile)
+                            </div>
+                            <div class="col-sm">
+                                @Html.DisplayFor(model => model.Mobile)
+                            </div>
+                        </div><br />
+                        <div class="row">
+                            <div class="col-sm fw-bold">
+                                @Html.DisplayNameFor(model => model.DOB)
+                            </div>
+                            <div class="col-sm">
+                                @Html.DisplayFor(model => model.DOB)
+                            </div>
+                            <div class="col-sm fw-bold">
+                                @Html.DisplayNameFor(model => model.Age)
+                            </div>
+                            <div class="col-sm">
+                                @Html.DisplayFor(model => model.Age)
+                            </div>
+                        </div><br />
+                        <div class="row">
+                            <div class="col-sm fw-bold">
+                                @Html.DisplayNameFor(model => model.Gender)
+                            </div>
+                            <div class="col-sm">
+                                @Html.DisplayFor(model => model.Gender)
+                            </div>
+                            <div class="col-sm fw-bold">
+                                @Html.DisplayNameFor(model => model.Department)
+                            </div>
+                            <div class="col-sm">
+                                @Html.DisplayFor(model => model.Department)
+                            </div>
+                        </div><br />
+                        <div class="row">
+                            <div class="col-sm fw-bold">
+                                @Html.DisplayNameFor(model => model.Salary)
+                            </div>
+                            <div class="col-sm">
+                                @Html.DisplayFor(model => model.Salary)
+                            </div>
+                            <div class="col-sm fw-bold">
+                                @Html.DisplayNameFor(model => model.Address)
+                            </div>
+                            <div class="col-sm">
+                                @Html.DisplayFor(model => model.Address)
+                            </div>
+                        </div><br />
+                        <div class="row">
+                            <div class="col-sm-3 fw-bold">
+                                @Html.DisplayNameFor(model => model.CreatedOn)
+                            </div>
+                            <div class="col-sm-3">
+                                @Html.DisplayFor(model => model.CreatedOn)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

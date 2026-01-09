@@ -1,0 +1,145 @@
+﻿@model CRUD_Operation_JqueryAJAX.Models.HotelModel
+
+@{
+    ViewData["Title"] = "ViewOrderDetails";
+}
+<style>
+    img {
+        height: 71px;
+        width: 71px;
+        padding: 5px;
+    }
+
+    .card-header {
+        background-color: #b8daff;
+    }
+</style>
+
+<section>
+    <div class="row">
+        <div class="col-lg-12">
+            <a class="btn btn-primary mb-2 float-end" asp-controller="Hotel" asp-action="GetHotelData">Customer Order List</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h2>Customer Order Details</h2>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="card mb-4">
+                        <div class="card-body text-center">
+                            @Html.HiddenFor(modelItem => Model.CustomerId)
+                            @if (Model.DishImageName != "")
+                            {
+                                <img src='~/Images/@Model.DishImageName' alt="Dish" class="rounded-circle img-fluid" style="width: 150px;height:150px;">
+                            }
+                            else
+                            {
+                                <p>NA</p>
+                            }
+                            <h5 class="my-3">@Model.DishName </h5>
+                            <div class="d-flex justify-content-center mb-2">
+                                @Html.ActionLink("Edit","EditCustomersOrderData","Hotel",new{custId = Model.CustomerId},new{@class="btn btn-primary"})
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">Customer Name</p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">@Model.CustomerName</p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">Dish Name</p>
+                                </div>
+                                <div class="col-sm-9">
+
+                                    <p class="text-muted mb-0">@Model.DishName</p>
+
+
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">Quantity</p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">@Model.Quantity</p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">Amount</p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">₹@Model.Amount</p>
+                                </div>
+                            </div>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+@*<h1>View Order Details</h1>
+
+<div>
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CustomerName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CustomerName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DishName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DishName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Quantity)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Quantity)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Amount)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Amount)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.OrderDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.OrderDate)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="EditCustomersOrderData" asp-route-id="@Model?.CustomerId">Edit</a> |
+    <a asp-action="GetHotelData">Back to List</a>
+</div>*@

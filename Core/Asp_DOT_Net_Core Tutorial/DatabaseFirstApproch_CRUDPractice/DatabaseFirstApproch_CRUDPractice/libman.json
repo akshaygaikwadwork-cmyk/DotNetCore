@@ -1,0 +1,18 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "jquery@3.7.1",
+      "destination": "wwwroot/jquery"
+    },
+    {
+      "library": "tsparticles-updater-twinkle@2.12.0",
+      "destination": "wwwroot/tsparticles-updater-twinkle/"
+    },
+    {
+      "library": "twitter-bootstrap@5.3.3",
+      "destination": "wwwroot/lib/twitter-bootstrap/"
+    }
+  ]
+}

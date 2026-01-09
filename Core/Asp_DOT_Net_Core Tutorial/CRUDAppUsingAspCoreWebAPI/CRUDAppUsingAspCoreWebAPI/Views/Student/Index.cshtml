@@ -1,0 +1,82 @@
+﻿@model IEnumerable<CRUDAppUsingAspCoreWebAPI.Models.Student>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+@{
+    if(TempData["InsertMessage"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["InsertMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+    if (TempData["UpdateMessage"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["UpdateMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+    if (TempData["DeleteMessage"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["DeleteMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.studName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.studGender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.studAge)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.studStandard)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.studName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.studGender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.studAge)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.studStandard)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {  id=item.id  }) |
+                @Html.ActionLink("Details", "Details", new {  id=item.id  }) |
+                @Html.ActionLink("Delete", "Delete", new {  id=item.id  })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

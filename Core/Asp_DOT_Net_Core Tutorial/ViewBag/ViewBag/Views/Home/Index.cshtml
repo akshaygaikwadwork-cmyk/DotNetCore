@@ -1,0 +1,24 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<h1>Index Page</h1>
+
+<h4>@ViewBag.Title</h4>
+<h4>@ViewBag.Datetime</h4>
+<h4>@ViewBag.Age</h4>
+@{
+    //Note - we do not need to type cast the viewbag but in viewdata we need to typecast
+    foreach (var item in ViewBag.ArryList)
+    {
+        <h1>@item</h1>
+    }
+
+    foreach (var item in ViewBag.List)
+    {
+        <h1>@item</h1>
+    }
+    <br />
+    <h2>@ViewBag.data</h2>
+}

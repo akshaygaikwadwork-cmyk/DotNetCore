@@ -1,0 +1,102 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+
+    var emp = ViewData["EmployeeDtl"] as EmployeeModel; // We need to typecast otherwise it will give error
+    var emp1 = ViewBag.EmployeeDtl; // no need to typecast
+    var emp2 = TempData["EmployeeDtl"] as EmployeeModel; // We need to typecast otherwise it will give error
+
+    var emp_list = ViewData["EmployeeDtl_list"] as List<EmployeeModel>; // We need to typecast otherwise it will give error
+    var emp1_list = ViewBag.EmployeeDtl_list; // no need to typecast
+    var emp2_list = TempData["EmployeeDtl_list"] as List<EmployeeModel>; // We need to typecast otherwise it will give error
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+@{
+    <h1>Without List</h1>
+    <h3>Using ViewData - </h3>
+    if (emp != null)
+    {
+        <h5>Id : @emp.EmpId</h5>
+        <h5>Name : @emp.EmpName</h5>
+        <h5>Designation : @emp.Designation</h5>
+        <h5>Salary : @emp.Salary</h5>
+    }
+    else
+    {
+        <h3>No records available.</h3>
+    }
+    <h3>Using ViewBag - </h3>
+    if (emp1 != null)
+    {
+        <h5>Id : @emp1.EmpId</h5>
+        <h5>Name : @emp1.EmpName</h5>
+        <h5>Designation : @emp1.Designation</h5>
+        <h5>Salary : @emp1.Salary</h5>
+    }
+    else
+    {
+        <h3>No records available.</h3>
+    }
+    <h3>Using TempData - </h3>
+    if (emp2 != null)
+    {
+        <h5>Id : @emp2.EmpId</h5>
+        <h5>Name : @emp2.EmpName</h5>
+        <h5>Designation : @emp2.Designation</h5>
+        <h5>Salary : @emp2.Salary</h5>
+    }
+    else
+    {
+        <h3>No records available.</h3>
+    }
+
+    <h1>With List</h1>
+
+    if (emp_list != null)
+    {
+        foreach (var item in emp_list)
+        {
+            <h5>Id : @item.EmpId</h5>
+            <h5>Name : @item.EmpName</h5>
+            <h5>Designation : @item.Designation</h5>
+            <h5>Salary : @item.Salary</h5>
+        }
+    }
+    else
+    {
+        <h3>No records available.</h3>
+    }
+    <h3>Using ViewBag - </h3>
+    if (emp1_list != null)
+    {
+        foreach (var item in emp1_list)
+        {
+            <h5>Id : @item.EmpId</h5>
+            <h5>Name : @item.EmpName</h5>
+            <h5>Designation : @item.Designation</h5>
+            <h5>Salary : @item.Salary</h5>
+        }
+    }
+    else
+    {
+        <h3>No records available.</h3>
+    }
+    <h3>Using TempData - </h3>
+    if (emp2_list != null)
+    {
+        foreach (var item in emp2_list)
+        {
+            <h5>Id : @item.EmpId</h5>
+            <h5>Name : @item.EmpName</h5>
+            <h5>Designation : @item.Designation</h5>
+            <h5>Salary : @item.Salary</h5>
+        }
+    }
+    else
+    {
+        <h3>No records available.</h3>
+    }
+}

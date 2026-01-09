@@ -1,0 +1,6 @@
+@CustomMiddlewareExtention_HostAddress = http://localhost:5178
+
+GET {{CustomMiddlewareExtention_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
